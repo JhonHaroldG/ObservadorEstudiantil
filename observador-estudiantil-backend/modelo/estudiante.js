@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
+
 let schemaEstudiantes = new schema(
 {
+    tipoIdentificacion:{
+        type: String,
+    },
     identificacion:{
         type: String,
     },
@@ -10,19 +14,38 @@ let schemaEstudiantes = new schema(
     },
     edad:{
         type: Number,
-
     },
     promedio:{
         type: Number,
-
     },
-    acudiente:{
+    grado:{
         type: String,
-    }
-       
+    },
+    genero:{
+        type: String,
+    },
+    direccion:{
+        type: String,
+    },
+    telefono:{
+        type: String,
+    },
+    celular:{
+        type: String,
+    },
+    madre: {
+        nombre: String,
+        ocupacion: String,
+        telefono: String
+    },
+    padre: {
+        nombre: String,
+        ocupacion: String,
+        telefono: String
+    },
+    observaciones:[String]
 },{
     colletion: "estudiante"
-
 }
     
 );
