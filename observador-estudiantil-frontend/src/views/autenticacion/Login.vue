@@ -3,11 +3,13 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
-        <h1>Observador estudiantil virtual</h1>
+        <div class="row login-form">
+        <h1>OBSERVADOR ESTUDIANTIL VIRTUAL</h1>
+        </div>
       </div>
       <div class="col-md-3"></div>
     </div>
-    <div class="row">
+    <div class="row login-form">
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <p>
@@ -25,7 +27,7 @@
       </div>
       <div class="col-md-3"></div>
       <div class="col-md-2">
-        <div class="row login-form">
+        <div class="row login-form2">
           <input
             type="text"
             name="usuario"
@@ -66,8 +68,9 @@ export default {
   methods: {
     login() {
       this.$emit("authenticated", true);
-      axios.post("http://localhost:3000/seguridad/autenticacion", {"usuario":this.input.usuario, "contrasena":this.input.contrasena})
+      axios.post("http://localhost:3000/auth/login", {"usuario":this.input.usuario, "contrasena":this.input.contrasena})
       .then(response => {
+        console.log(response)
         if (response.data == null) {
           this.mensaje = "El usuario o clave son erroneos";
         } else {
@@ -80,8 +83,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.row .login-form {
-    margin-top: 50%;
-}
-</style>
+<style src="./login.scss" lang="scss">

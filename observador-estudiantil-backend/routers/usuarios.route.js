@@ -19,4 +19,17 @@ usuarioRoute.route("/autenticacion").post((req,res) => {
         }
     });
 });
+
+usuarioRoute.route("").get((req,res) => {
+    usuario.find({}, (err, resultado) => {
+        if (err){
+            console.log("error",err);
+            res.send(err);
+        }
+        else{
+            res.json(resultado);
+        }
+    });
+});
+
 module.exports = usuarioRoute;

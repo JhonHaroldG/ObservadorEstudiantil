@@ -31,8 +31,10 @@ app.use(cors());
 // ROUTES
 const routersEstudiantes = require("./routers/estudiantes.route");
 const routersUsuarios = require("./routers/usuarios.route");
+const routerAuth = require('./routers/auth.route');
 app.use("/estudiantes",routersEstudiantes);
 app.use("/seguridad",routersUsuarios);
+app.use('/auth',routerAuth);
     
 app.listen(3000, () => {
  console.log("Server started on port 3000");
